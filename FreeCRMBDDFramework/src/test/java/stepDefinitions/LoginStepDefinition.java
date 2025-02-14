@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,7 +21,10 @@ public class LoginStepDefinition
 	 public void user_is_on_login_page()
 	 {
 		   System.setProperty("WebDriver.chrome.driver", "C:/Users/POOJA/Downloads/chromedriver_win32");
-		   driver= new ChromeDriver();
+		   ChromeOptions chromeOptions = new ChromeOptions();
+		   chromeOptions.addArguments("--headless");
+		   driver = new ChromeDriver(chromeOptions);
+		   //driver= new ChromeDriver();
 		   driver.get("https://www.spicejet.com");
 		   System.out.println("Open url successfully");
 	 }

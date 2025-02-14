@@ -10,10 +10,10 @@ public class LoginPage
 {
 	public WebDriver driver;
 	
-	//@FindBy(xpath="//div[contains(text(),'Login')]")
-	//WebElement login;
-	@FindBy(xpath="//div[@class='css-76zvg2 r-jwli3a r-ubezar']")
+	@FindBy(xpath="//div[contains(text(),'Login')]")
 	WebElement login;
+	//@FindBy(xpath="//div[@class='css-76zvg2 r-jwli3a r-ubezar']")
+	//WebElement login;
 	@FindBy(xpath="//input[@data-testid='user-mobileno-input-box']")
 	WebElement user;
 	@FindBy(xpath="//input[@data-testid='password-input-box-cta']")
