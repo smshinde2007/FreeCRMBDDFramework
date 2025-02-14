@@ -26,6 +26,7 @@ public class LoginStepDefinition
 		   driver = new ChromeDriver(chromeOptions);
 		   //driver= new ChromeDriver();
 		   driver.get("https://www.spicejet.com");
+		   driver.manage().window().maximize();
 		   System.out.println("Open url successfully");
 	 }
 	 @When("tilte is name of web")
