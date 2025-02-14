@@ -1,10 +1,6 @@
 package stepDefinitions;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -12,26 +8,21 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import junit.framework.Assert;
 import pageObjects.LoginPage;
+import utility.TestBase;
 
-public class LoginStepDefinition
+public class LoginStepDefinition extends TestBase
 {
-	 public WebDriver driver;
 	 LoginPage login;
 	 @Given("user is on login page")
 	 public void user_is_on_login_page()
 	 {
-		   System.setProperty("WebDriver.chrome.driver", "C:/Users/POOJA/Downloads/chromedriver_win32");
-		   ChromeOptions chromeOptions = new ChromeOptions();
-		   chromeOptions.addArguments("--headless");
-		   driver = new ChromeDriver(chromeOptions);
-		   //driver= new ChromeDriver();
-		   driver.get("https://www.spicejet.com");
-		   driver.manage().window().maximize();
-		   System.out.println("Open url successfully");
+		 TestBase.initilization();
+		 
 	 }
 	 @When("tilte is name of web")
 	 public void tilte_is_name_of_web()
 	 { 
+		 login= new LoginPage(driver);
 		 String title= driver.getTitle();
 			System.out.println(title);
 		    Assert.assertEquals("SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets", title);
@@ -41,7 +32,7 @@ public class LoginStepDefinition
 	 @Then("user add {string} and {string}")
 	 public void user_add_and(String username, String password)
 	 {
-		  login= new LoginPage(driver);
+		  //login= new LoginPage(driver);
 		  login.clickLogin();
 		  login.enterUsername(username);
 		  login.enterPassword(password);
