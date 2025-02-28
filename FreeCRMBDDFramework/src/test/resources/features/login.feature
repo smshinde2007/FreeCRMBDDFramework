@@ -1,4 +1,5 @@
 #test git commit
+
 Feature: Free CRM login Feature
 
 Background: Login into web
@@ -6,7 +7,7 @@ Background: Login into web
  When tilte is name of web
  Then user add "9970264720" and "Saga@123"
  Then user click on login button
- 
+ @saga
  Scenario Outline: Free CRM Login test 
  When user validate homePage
  And close the browser

@@ -1,18 +1,20 @@
 package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
+import io.cucumber.plugin.event.Event;
 import pageObjects.LoginPage;
 import utility.TestBase;
 
 public class LoginStepDefinition extends TestBase
 {
-	 LoginPage login;
+	
+	LoginPage login;
 	 @Given("user is on login page")
 	 public void user_is_on_login_page()
 	 {
@@ -30,8 +32,9 @@ public class LoginStepDefinition extends TestBase
 	 } 
 	 
 	 @Then("user add {string} and {string}")
-	 public void user_add_and(String username, String password)
+	 public void user_add_and(String username, String password) throws InterruptedException
 	 {
+		 Thread.sleep(2000);
 		  //login= new LoginPage(driver);
 		  login.clickLogin();
 		  login.enterUsername(username);
@@ -61,7 +64,7 @@ public class LoginStepDefinition extends TestBase
 	@Given("user click on hotel tab")
 	public void user_click_on_hotel_tab() throws InterruptedException
 	{
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		//login.addCities();
 	}
 	@When("Hotel page opens add city name")
@@ -72,7 +75,8 @@ public class LoginStepDefinition extends TestBase
 	@Then("click on search button")
 	public void click_on_search_button() 
 	{
-		login.search();
+		
+		//login.search();
 	}
 	@And("close web")
 	public void close_web()

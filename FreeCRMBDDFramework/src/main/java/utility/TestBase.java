@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.cucumber.core.backend.CucumberInvocationTargetException;
+
 public class TestBase
 {
 	public static WebDriver driver;
@@ -24,6 +26,10 @@ public class TestBase
 		{
 			e.getMessage();
 		}
+		catch(CucumberInvocationTargetException i)
+		{
+			i.getCause();
+		}
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -33,9 +39,14 @@ public class TestBase
 		if(browserName.equals("chrome"))
 		{
 		System.setProperty("WebDriver.chrome.driver", "C:/Users/POOJA/Downloads/chromedriver_win32");
-		  ChromeOptions chromeOptions = new ChromeOptions();
-		   chromeOptions.addArguments("--headless");
-		   driver = new ChromeDriver(chromeOptions);
+		/*
+		 * ChromeOptions chromeOptions = new ChromeOptions();
+		 * chromeOptions.addArguments("--headless"); driver = new
+		 * ChromeDriver(chromeOptions);
+		 */
+			 driver= new ChromeDriver();
+			
+		
 		}
 		   else if(browserName.equals("FF"))
   	    {
